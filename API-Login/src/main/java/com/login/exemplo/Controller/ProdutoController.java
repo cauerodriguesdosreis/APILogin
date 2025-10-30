@@ -37,7 +37,7 @@ public class ProdutoController {
         if (lista.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Lista vazia");
         } else {
-            return ResponseEntity.ok((Produto) lista);
+            return ResponseEntity.ok(lista);
         }
 
     }
@@ -50,7 +50,7 @@ public class ProdutoController {
             return ResponseEntity.status(HttpStatus.CREATED).body("Criado com sucesso");
     }
 
-    @DeleteMapping
+    @DeleteMapping("/deletar/{id}")
     public ResponseEntity<?> deletarId(@PathVariable int id) {
         boolean deletarProduto = produtoRepository.existsById(id);
 

@@ -37,7 +37,7 @@ public class UsuarioController {
             if (findUser.getPassword().equals(user.getPassword())) {
                 return ResponseEntity.ok("Logado com sucesso");
             } else {
-                return ResponseEntity.ok("Senha incorreta");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Senha incorreta/vazia");
             }
         }
     }
@@ -65,6 +65,7 @@ public class UsuarioController {
         if (UsuarioExistente.isPresent()) {
             Usuario usuario = UsuarioExistente.get();
             usuario.setName(novoUsuario.getName());
+            usuario.setEmail(novoUsuario.getEmail());
             usuario.setPassword(novoUsuario.getPassword());
             usuarioRepository.save(usuario);
             return ResponseEntity.ok("Atualizado com sucesso");

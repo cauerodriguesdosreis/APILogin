@@ -3,11 +3,11 @@ package com.login.exemplo.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table (name = "tb_usuario")
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
