@@ -16,7 +16,7 @@ import java.util.Stack;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class    UsuarioController {
+public class UsuarioController {
 
     @Autowired
     UsuarioRepository usuarioRepository;
@@ -27,14 +27,6 @@ public class    UsuarioController {
         usuarioRepository.save(usuario);
         return ResponseEntity.ok("Cadastro realizado com sucesso!");
     }
-
-//    @PostMapping(value = "usuario/cadastro")
-//    public ResponseEntity<Usuario> saveUser(@PathVariable Usuario user) {
-//        Usuario usuario = usuarioRepository.findById(user.getId());
-//        usuarioRepository.save(usuario);
-//        return ResponseEntity.ok(usuario);
-//    }
-//
 
     @PostMapping("login")
     public ResponseEntity<?> findUser(@RequestBody Usuario user) {
